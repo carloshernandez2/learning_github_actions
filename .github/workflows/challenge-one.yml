@@ -18,9 +18,7 @@ jobs:
     runs-on: windows-latest
     steps:
       - name: Print command
-        run: |
-          $date = get-date
-          $date.ToString("yyyy-mm-dd")
+        run: date +%F
   job4:
     name: Print date mac
     runs-on: macos-10.15
