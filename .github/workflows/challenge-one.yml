@@ -1,0 +1,33 @@
+name: Challenge one
+on: push
+jobs:
+  job1:
+    name: Print date ubuntu
+    runs-on: ubuntu-latest
+    steps:
+      - name: Print command
+        run: date +%F
+  job2:
+    name: Print date mac
+    runs-on: macos-latest
+    steps:
+      - name: Print command
+        run: date +%F
+  job3:
+    name: Print date windows
+    runs-on: windows-latest
+    steps:
+      - name: Print command
+        run: |
+          $date = get-date
+          $date.ToString("yyyy-mm-dd")
+  job4:
+    name: Print date mac
+    runs-on: macos-10.15
+    needs:
+      - job1
+      - job2
+      - job3
+    steps:
+      - name: Print command
+        run: date +%F
